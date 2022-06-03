@@ -1,9 +1,11 @@
-import "./App.css";
+import Navbar from "./Components/Navbar";
+import AllPages from "./Components/Pages/AllPages";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-main">Hello hello</h1>
+    <div className=" w-screen h-screen">
+      <Navbar />
+      <AllPages />
     </div>
   );
 }
