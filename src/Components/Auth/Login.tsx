@@ -1,6 +1,6 @@
 const Login = () => {
   return (
-    <div className="w-1/4 bg-white py-12 px-12 my-12 mx-auto rounded-2xl shadow-lg shadow-slate-200">
+    <div className="w-1/4 bg-white py-12 px-12  mx-auto  shadow-lg shadow-slate-200">
       <form>
         <div className="email my-2">
           <label htmlFor="email" className="text-text font-semibold">

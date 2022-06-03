@@ -1,6 +1,6 @@
 const Signup = () => {
   return (
-    <div className="w-1/4 bg-white py-12 px-12 my-12 mx-auto rounded-2xl shadow-lg shadow-slate-200">
+    <div className="w-1/4 bg-white py-12 px-12 mx-auto  shadow-lg shadow-slate-200">
       <form>
         <div className="displayName my-4">
           <label htmlFor="name" className="text-text font-semibold">
