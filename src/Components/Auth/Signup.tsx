@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -9,7 +9,7 @@ const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, uError] = useUpdateProfile(auth);
-  const [name, setName] = useState<string>("");
+  const [displayName, setDisplayName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -26,13 +26,15 @@ const Signup = () => {
     errorMessage = error?.message;
   }
 
-  const handleSignUp = (e: React.SyntheticEvent): void => {
+  const handleSignUp = async (e: React.SyntheticEvent): Promise<void> => {
     e.preventDefault();
-    createUserWithEmailAndPassword(email, password);
-    updateProfile({
-      displayName: name,
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({
+      displayName,
     });
+    console.log(user);
   };
+
   return (
     <div className="w-1/4 bg-white py-12 px-12 mx-auto  shadow-lg shadow-slate-200">
       <form onSubmit={handleSignUp}>
@@ -43,8 +45,8 @@ const Signup = () => {
           <br />
           <input
             type="name"
-            value={name}
-            onChange={({ target }) => setName(target.value)}
+            value={displayName}
+            onChange={({ target }) => setDisplayName(target.value)}
             id="name"
             className="border border-black border-opacity-10 px-5 py-2 focus:outline-none focus:border-opacity-30 w-full rounded-md"
           />
